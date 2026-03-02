@@ -41,6 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Voir les messages'),
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/connexion');
+              },
+              child: const Text('Connexion'),
+            ),
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_forum/screens/affichageMessage.dart';
 import 'package:flutter_forum/screens/listeUtilisateur.dart';
 import 'package:flutter_forum/screens/inscription.dart';
+import 'package:flutter_forum/screens/connexion.dart';
 import 'screens/myhomepage.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/affichage': (context) => const AffichagePage(),
         '/listeUtilisateur': (context) => const ListeUtilisateurPage(),
         '/inscription': (context) => MyCustomForm(),
+        '/connexion': (context) => LoginForm(),
       },
       debugShowCheckedModeBanner: false,
     );

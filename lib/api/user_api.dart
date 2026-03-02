@@ -9,7 +9,6 @@ class UserApi {
     final url = "$baseUrl/users";
 
     final response = await http.get(Uri.parse(url));
-    
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
@@ -51,6 +50,34 @@ class UserApi {
     } catch (e) {
       print("Exception lors de la requête : $e");
       return 0; // Erreur réseau
+    }
+  }
+
+  Future<Map<String, dynamic>> loginUser(String email, String password) async {
+    final String baseUrl = dotenv.env['API_BASE_URL']!;
+    final uri = Uri.parse("$baseUrl/authentication_token");
+
+    final headers = {
+      'Content-Type': 'application/ld+json',
+      'Accept': 'application/ld+json',
+    };
+
+    final body = json.encode({'email': email, 'password': password});
+
+    try {
+      final response = await http.post(uri, headers: headers, body: body);
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        return {'token': data['token']};
+      } else {
+        return {
+          'error': 'Échec login: ${response.statusCode}',
+          'status': response.statusCode,
+        };
+      }
+    } catch (e) {
+      return {'error': 'Exception réseau: $e', 'status': 0};
     }
   }
 }
