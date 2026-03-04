@@ -58,7 +58,7 @@ class _ListeUtilisateurPageState extends State<ListeUtilisateurPage> {
                     u.roles.isNotEmpty ? u.roles.join(', ') : 'User',
                   ),
                   /* onTap: () {
-                    // Vous pourrez ajouter la navigation vers le profil utilisateur
+                    // On pourrait ajouter la navigation vers le profil utilisateur
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Profil de ${u.email}')),
                     );
